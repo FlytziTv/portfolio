@@ -55,10 +55,11 @@ export default function Contact() {
         <section className="flex flex-col gap-6">
           <div className="space-y-1">
             <h1 className="text-white text-3xl tracking-tight uppercase italic font-bold">
-              Ma Veille
+              Contactez-moi
             </h1>
             <p className="text-sm font-mono tracking-tighter uppercase text-zinc-500 italic">
-              Veille technologique réalisée au cours de ma formation
+              Vous avez une question, une opportunité ou simplement envie de
+              discuter ?
             </p>
           </div>
         </section>
