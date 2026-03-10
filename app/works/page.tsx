@@ -1,5 +1,14 @@
 import Image from "next/image";
-import { ChevronRight } from "lucide-react";
+import {
+  Target,
+  Briefcase,
+  MapPin,
+  GraduationCap,
+  ChevronRight,
+} from "lucide-react";
+import Link from "next/link";
+import { SZSection } from "@/components/SZ2026/SZSection";
+import SZFooter from "@/components/SZ2026/SZFooter";
 
 const data_stud = {
   titre: "BTS SIO SLAM",
@@ -79,165 +88,158 @@ export const search_data = [
 
 export default function Works() {
   return (
-    <>
-      <main className="flex-1 w-full max-w-340 mx-auto items-start justify-center my-6 px-6">
-        <div className=" grid grid-cols-1 xl:grid-cols-2 gap-6 w-full">
-          <div className="flex-1 flex flex-col gap-6 bg-[#0A0A0A] border border-[#252525] rounded-xl p-4">
-            <div className="flex flex-row gap-4 items-center justify-start">
-              <div className="shrink-0 aspect-square w-17.5 h-17.5 rounded-sm overflow-hidden bg-white flex items-center justify-center">
-                <Image
-                  src={data_stud.image}
-                  alt={data_stud.name}
-                  width={60}
-                  height={60}
-                />
-              </div>
-              <div className="flex flex-col ">
-                <h2 className="text-xl font-bold">{data_stud.titre}</h2>
-                <p className="text-sm text-white/70">{data_stud.name}</p>
-                <p className="text-sm text-white/40">{data_stud.loc}</p>
-              </div>
-            </div>
+    <div className="min-h-screen text-[#888] font-sans">
+      <main className="max-w-6xl mx-auto px-6 py-24 flex flex-col gap-14">
+        <section className="space-y-1">
+          <h1 className="text-white text-3xl tracking-tight uppercase italic font-bold">
+            école & Entreprise
+          </h1>
+          <p className="text-sm font-mono tracking-tighter uppercase text-zinc-500 italic">
+            Formations suivies et opportunités en entreprise
+          </p>
+        </section>
 
-            <div className="grid grid-cols-3 gap-4">
-              {data_stud.dates.map((date, index) => (
-                <div
-                  key={index}
-                  className={`flex flex-col gap-1 border border-sztatus/50 bg-sztatus/5 rounded-lg p-3 items-center justify-center w-full`}
-                >
-                  <p className="text-sm text-white/70">{date.name}</p>
-                  <p className="font-bold">{date.value}</p>
+        <SZSection title="Ma formation">
+          <div className="flex flex-col gap-8 p-8 bg-[#0A0A0A] border border-zinc-900 rounded-2xl group hover:border-zinc-700 transition-all duration-500">
+            <div className="flex flex-col gap-8 items-start justify-between">
+              <div className="flex gap-6 items-center">
+                <div className="aspect-square w-20 h-20 rounded-2xl bg-white p-4 flex items-center justify-center shrink-0">
+                  <Image
+                    src={data_stud.image}
+                    alt={data_stud.name}
+                    width={60}
+                    height={60}
+                    className="object-contain"
+                  />
                 </div>
-              ))}
-            </div>
+                <div className="space-y-1">
+                  <h2 className="text-white text-2xl font-bold uppercase tracking-tighter">
+                    {data_stud.name}
+                  </h2>
+                  <p className="text-sm font-mono text-zinc-500 uppercase tracking-widest flex items-center gap-2 italic">
+                    <MapPin size={12} /> {data_stud.loc} — {data_stud.titre}
+                  </p>
+                </div>
+              </div>
 
-            <div className="flex flex-col gap-1">
-              <h4 className="font-semibold text-base">Slogant</h4>
-              <p className="text-white/80 text-sm">
-                &quot; {data_stud.slogan} &quot;
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-1">
-              <h4 className="font-semibold text-base">Description</h4>
-              <p className="text-white/80 text-sm">{data_stud.desc}</p>
-            </div>
-
-            <div className="bg-[#1a1a1a] rounded-lg p-4 flex flex-col gap-2">
-              <h5 className="text-base font-medium text-[#ffff]">
-                Formations proposées
-              </h5>
-
-              <ul className="grid grid-cols-1 gap-2">
-                {data_stud.formation.map((item, index) => (
-                  <li
-                    key={index}
-                    className="text-sm inline-flex items-center gap-1"
+              <div className="flex gap-2">
+                {data_stud.dates.map((d, i) => (
+                  <div
+                    key={i}
+                    className="bg-[#1a1a1a] rounded-md p-2 px-4 flex flex-col items-center border border-transparent"
                   >
-                    <span className="text-sztatus">
-                      <ChevronRight size={14} />
+                    <span className="text-[9px] uppercase font-bold text-zinc-600 tracking-widest">
+                      {d.name}
                     </span>
+                    <span className="text-[11px] text-white font-bold">
+                      {d.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="text-sm leading-relaxed text-zinc-500 max-w-3xl">
+              {data_stud.desc}
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="text-[10px] font-bold text-zinc-600 uppercase tracking-[0.2em] flex items-center gap-2">
+                <GraduationCap size={14} /> Spécialisations du Campus
+              </h3>
+              <div className="flex flex-wrap gap-2 font-mono">
+                {data_stud.formation.map((item, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 text-[10px] text-zinc-400 border border-zinc-900 bg-black/50 rounded-full hover:border-zinc-500 hover:text-white transition-all"
+                  >
                     {item}
-                  </li>
+                  </span>
                 ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-3">
-            <div className="flex-1 flex flex-col gap-6 bg-[#0A0A0A] border border-[#252525] rounded-xl p-4">
-              <div className="flex flex-row gap-4 items-center justify-start">
-                <div className="shrink-0 aspect-square w-17.5 h-17.5 rounded-sm overflow-hidden bg-white flex items-center justify-center">
-                  <p className="text-4xl text-black font-bold">?</p>
-                </div>
-                <div className="flex flex-col ">
-                  <h2 className="text-xl font-bold">{search_data[0].title}</h2>
-                  <p className="text-sm text-white/70">
-                    {search_data[0].rythme}
-                  </p>
-                  <p className="text-sm text-white/40">
-                    {search_data[0].disponibilite}
-                  </p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-3 gap-4">
-                {search_data[0].dates.map((date, index) => (
-                  <div
-                    key={index}
-                    className={`flex flex-col gap-1 border border-sztatus/50 bg-sztatus/5 rounded-lg p-3 items-center justify-center w-full`}
-                  >
-                    <p className="text-sm text-white/70">{date.name}</p>
-                    <p className="font-bold">{date.value}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <h4 className="font-semibold text-base">Objectif</h4>
-                <p className="text-white/80 text-sm">
-                  {search_data[0].objectif}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex flex-row items-center justify-center gap-4 w-full">
-              <div className="h-px w-full bg-[#252525]" />
-              <p className="text-white">ou</p>
-              <div className="h-px w-full bg-[#252525]" />
-            </div>
-
-            <div className="flex-1 flex flex-col gap-6 bg-[#0A0A0A] border border-[#252525] rounded-xl p-4">
-              <div className="flex flex-row gap-4 items-center justify-start">
-                <div className="shrink-0 aspect-square w-17.5 h-17.5 rounded-sm overflow-hidden bg-white flex items-center justify-center">
-                  <p className="text-4xl text-black font-bold">?</p>
-                </div>
-                <div className="flex flex-col ">
-                  <h2 className="text-xl font-bold">{search_data[1].title}</h2>
-                  <p className="text-sm text-white/70">
-                    {search_data[1].durée}
-                  </p>
-                  <p className="text-sm text-white/40">
-                    {search_data[1].periode}
-                  </p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-3 gap-4">
-                {search_data[1].dates.map((date, index) => (
-                  <div
-                    key={index}
-                    className={`flex flex-col gap-1 border border-sztatus/50 bg-sztatus/5 rounded-lg p-3 items-center justify-center w-full`}
-                  >
-                    <p className="text-sm text-white/70">{date.name}</p>
-                    <p className="font-bold">{date.value}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="bg-[#1a1a1a] rounded-lg p-4 flex flex-col gap-2">
-                <h5 className="text-base font-medium text-[#ffff]">
-                  Missions proposées
-                </h5>
-
-                <ul className="grid grid-cols-1 gap-2">
-                  {search_data[1].mission.map((item, index) => (
-                    <li
-                      key={index}
-                      className="text-sm inline-flex items-center gap-1"
-                    >
-                      <span className="text-sztatus">
-                        <ChevronRight size={14} />
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
           </div>
-        </div>
+        </SZSection>
+
+        <SZSection title="Recherche d'alternance & stage">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-20">
+            {search_data.map((item) => (
+              <div
+                key={item.id}
+                className="flex flex-col gap-6 p-6 bg-[#0A0A0A] border border-zinc-900 rounded-2xl group hover:border-zinc-700 transition-all justify-between duration-500"
+              >
+                <div className="flex flex-col gap-6">
+                  <div className="flex flex-row gap-5 items-center">
+                    <div className="flex items-center justify-center aspect-square h-12 w-12 rounded-xl bg-white text-black transition-colors">
+                      {item.id === 1 ? (
+                        <Briefcase size={22} />
+                      ) : (
+                        <Target size={22} />
+                      )}
+                    </div>
+                    <div className="flex flex-col">
+                      <h3 className="font-bold text-lg text-white tracking-tight uppercase ">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs text-zinc-500 font-mono tracking-tighter">
+                        {item.rythme || item.durée}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                    {item.dates.map((d, i) => (
+                      <div
+                        key={i}
+                        className="bg-[#1a1a1a] rounded-md p-2 flex flex-col items-center border border-transparent transition"
+                      >
+                        <span className="text-[10px] uppercase font-bold text-zinc-600">
+                          {d.name}
+                        </span>
+                        <span className="text-xs text-white font-bold">
+                          {d.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="text-sm text-zinc-400 font-light italic leading-relaxed min-h-15">
+                    {item.id === 1 ? (
+                      item.objectif
+                    ) : (
+                      <ul className="flex flex-col gap-2">
+                        {item.mission.map((m, idx) => (
+                          <li
+                            key={idx}
+                            className="text-xs text-zinc-400 flex items-start gap-2"
+                          >
+                            <span className="mt-1">
+                              <ChevronRight
+                                size={12}
+                                className="text-zinc-600"
+                              />
+                            </span>
+                            {m}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+
+                <Link
+                  href="/contact"
+                  className="w-full py-3 text-center rounded-lg bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-zinc-200 transition-all"
+                >
+                  Contact Candidate
+                </Link>
+              </div>
+            ))}
+          </div>
+        </SZSection>
+
+        <SZFooter />
       </main>
-    </>
+    </div>
   );
 }

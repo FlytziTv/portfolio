@@ -1,34 +1,39 @@
-import Footer from "@/components/sz/footer";
 import SZCertifCard from "@/components/SZ2026/SZCertifCard";
+import SZFooter from "@/components/SZ2026/SZFooter";
+import { SZSection } from "@/components/SZ2026/SZSection";
 import { certif_data } from "@/data/certifs";
 
 export default function Certifs() {
-
-
   return (
-    <>
-      <main className="flex flex-col gap-8 mx-auto items-center justify-center my-6 px-6">
-          <div className="flex flex-col w-full gap-4">
-            <h2 className="text-xl font-semibold">
-              Mes Certification <span>({certif_data.length})</span>
-            </h2>
+    <div className="min-h-screen text-[#888] font-sans">
+      <main className="max-w-6xl mx-auto px-6 py-24 flex flex-col gap-14">
+        <section className="space-y-1">
+          <h1 className="text-white text-3xl tracking-tight uppercase italic font-bold">
+            PROJETS E5
+          </h1>
+          <p className="text-sm font-mono tracking-tighter uppercase text-zinc-500 italic">
+            Production et optimisation de solutions informatiques
+          </p>
+        </section>
 
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
-              {certif_data.map((certif) => (
-                <SZCertifCard
-                  key={certif.id}
-                  categorie={certif.categorie}
-                  name={certif.name}
-                  image={certif.image}
-                  pdf={certif.pdf}
-                  description={certif.description}
-                  url={certif.link}
-                />
-              ))}
-            </div>
+        <SZSection title="Mes Certification" className="flex flex-col gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {certif_data.map((certif) => (
+              <SZCertifCard
+                key={certif.id}
+                categorie={certif.categorie}
+                name={certif.name}
+                image={certif.image}
+                pdf={certif.pdf}
+                description={certif.description}
+                url={certif.link}
+              />
+            ))}
           </div>
+        </SZSection>
+
+        <SZFooter />
       </main>
-      <Footer />
-    </>
+    </div>
   );
 }

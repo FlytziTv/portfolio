@@ -1,61 +1,44 @@
 "use client";
 
-import { pages } from "@/lib/nav-config";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <>
-      <main className="flex-1 flex flex-col w-full items-center justify-center px-6 relative">
-        {/* Changement : On passe de absolute à relative/static sur mobile pour que le contenu ne disparaisse pas, puis absolute sur LG */}
-        <div className="relative mt-auto mb-6 lg:mb-0 lg:absolute lg:bottom-6 lg:right-0 lg:left-0 lg:px-6 w-full flex flex-col items-start gap-4 lg:gap-0 lg:flex-row lg:justify-between lg:items-end">
-          {/* Bloc Titres */}
-          <div className="flex flex-col w-full lg:w-150 gap-4">
-            <p className="text-muted-foreground text-[15px] lg:text-[17px] font-light">
-              Paris, France
-            </p>
-            <div className="flex flex-col items-start gap-1 lg:gap-2">
-              <h1 className="uppercase font-bold text-2xl md:text-3xl lg:text-4xl italic text-foreground/70 leading-tight">
-                Developpeur Full Stack
-              </h1>
-              <h1 className="uppercase font-bold text-2xl md:text-3xl lg:text-4xl italic text-foreground/70 leading-tight">
-                Étudiant en BTS SIO SLAM
-              </h1>
-            </div>
-          </div>
+    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+      <main className="relative z-10 w-full px-6 flex flex-col items-center gap-6 text-center">
+        <div className=" flex flex-col items-center gap-4">
+          <h1 className="text-7xl lg:text-8xl font-bold tracking-tighter text-white uppercase italic leading-[0.9] pr-4 pb-2">
+            Alexis <br />
+            <span className="bg-linear-to-b from-white to-zinc-600 bg-clip-text text-transparent pr-4 -mr-4">
+              De Jesus
+            </span>
+          </h1>
+          <p className="text-zinc-500 text-sm md:text-base font-mono uppercase tracking-widest ">
+            Developpeur Full Stack / BTS SIO SLAM
+          </p>
+        </div>
 
-          {/* Bloc Description & Boutons */}
-          <div className="flex flex-col gap-6 w-full lg:w-125">
-            <p className="font-light text-[15px] lg:text-[17px] text-foreground/70 leading-relaxed max-w-prose">
-              Développeur Full Stack et étudiant en BTS SIO (SLAM) à Paris, je
-              conçois avec rigueur des solutions web performantes et intuitives,
-              alliant code robuste et expérience utilisateur fluide.
-            </p>
+        <div className="flex flex-row gap-4 items-center">
+          <Link
+            href="/e5"
+            className="group relative flex items-center gap-2 px-5 py-2.5 bg-white text-black rounded-full border border-transparent text-sm font-bold transition-all hover:bg-zinc-200"
+          >
+            Voir mes projets
+            <ArrowRight
+              size={16}
+              className="group-hover:translate-x-1 transition-transform"
+            />
+          </Link>
 
-            {/* Boutons : Wrap automatique si l'écran est trop petit */}
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href={pages[1].url}
-                className="flex items-center justify-center py-2 px-6 border border-border bg-card hover:bg-border/60 rounded-[20px] text-sm lg:text-base transition-colors"
-              >
-                À propos
-              </Link>
-              <Link
-                href={pages[6].url}
-                className="flex items-center justify-center py-2 px-6 border border-border bg-card hover:bg-border/60 rounded-[20px] text-sm lg:text-base transition-colors"
-              >
-                Projets
-              </Link>
-              <Link
-                href={pages[9].url}
-                className="flex items-center justify-center py-2 px-6 border border-border bg-card hover:bg-border/60 rounded-[20px] text-sm lg:text-base transition-colors"
-              >
-                Contact
-              </Link>
-            </div>
-          </div>
+          <Link
+            href="/contact"
+            className="px-5 py-2.5 rounded-full border border-zinc-800 bg-black text-white text-sm font-medium hover:bg-zinc-900 transition-colors"
+          >
+            Me contacter
+          </Link>
         </div>
       </main>
-    </>
+    </div>
   );
 }

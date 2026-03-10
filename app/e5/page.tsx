@@ -1,5 +1,6 @@
-import Footer from "@/components/sz/footer";
+import SZFooter from "@/components/SZ2026/SZFooter";
 import { SZProjectCard } from "@/components/SZ2026/SZProjectCard";
+import { SZSection } from "@/components/SZ2026/SZSection";
 import { projects_list } from "@/data/e5";
 
 export default function E5() {
@@ -15,20 +16,28 @@ export default function E5() {
   );
 
   return (
-    <>
-      <main className="flex flex-col gap-8 mx-auto items-center justify-center my-6 px-6">
-        {Object.entries(groupedByCategory).map(([category, projects]) => (
-          <div key={category} className="flex flex-col w-full gap-4">
-            <h2 className="text-xl font-semibold">
-              <span>{projects.length}</span> {category}
-            </h2>
+    <div className="min-h-screen text-[#888] font-sans">
+      <main className="max-w-6xl mx-auto px-6 py-24 flex flex-col gap-14">
+        <section className="space-y-1">
+          <h1 className="text-white text-3xl tracking-tight uppercase italic font-bold">
+            PROJETS E5
+          </h1>
+          <p className="text-sm font-mono tracking-tighter uppercase text-zinc-500 italic">
+            Production et optimisation de solutions informatiques
+          </p>
+        </section>
 
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+        {Object.entries(groupedByCategory).map(([category, projects]) => (
+          <SZSection
+            key={category}
+            title={category}
+            className="flex flex-col gap-8"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[...projects].reverse().map((project) => (
                 <SZProjectCard
                   key={project.id}
                   name={project.title}
-                  categorie={project.status}
                   url={project.url}
                   pdf={project.pdf}
                   description={project.desc}
@@ -36,10 +45,11 @@ export default function E5() {
                 />
               ))}
             </div>
-          </div>
+          </SZSection>
         ))}
+
+        <SZFooter />
       </main>
-      <Footer />
-    </>
+    </div>
   );
 }

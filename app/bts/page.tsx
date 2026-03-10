@@ -1,9 +1,6 @@
-// import BtsCard from "@/components/card/BtsCard";
-// import BtsOptionCard from "@/components/card/BtsOptionCard";
-// import { bts_data, bts_option_data } from "@/data/stud";
-import Footer from "@/components/sz/footer";
+import SZFooter from "@/components/SZ2026/SZFooter";
+import { SZSection } from "@/components/SZ2026/SZSection";
 import {
-  ChevronRight,
   Hourglass,
   BookOpen,
   Award,
@@ -120,137 +117,120 @@ const options = [
 
 export default function Bts() {
   return (
-    <>
-      <main className="flex-1 w-full max-w-340 mx-auto items-start justify-center my-6 px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full max-w-full">
-          <div className="flex flex-col gap-4 p-4 bg-[#0A0A0A] border border-[#252525] rounded-xl col-span-1 lg:col-span-2">
-            <h1 className="text-2xl font-bold uppercase fke">
-              Bts sio{" "}
-              <span className="text-lg">
-                {" "}
-                (Services Informatiques aux Organisations)
-              </span>
-            </h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {presentation.map((item) => (
-                <div
-                  key={item.titre}
-                  className="col-span-1 bg-[#1a1a1a] min-h-32 rounded-lg p-4 flex flex-col gap-4"
-                >
-                  <div className="flex flex-row gap-4">
-                    <div className="aspect-square bg-sztatus/20 rounded-sm h-11 flex items-center justify-center">
-                      <item.icon size={20} className="text-sztatus" />
-                    </div>
-                    <div className="flex flex-col justify-between items-start w-full">
-                      <h2 className="font-medium text-base text-[#ffff]">
-                        {item.titre}
-                      </h2>
-                      <p className="text-sm text-[#cccccc]">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                  <ul className="list-inside flex flex-col gap-2">
-                    {item.stats.map((stat, index) => (
-                      <li
-                        key={index}
-                        className="text-sm inline-flex items-center gap-1"
-                      >
-                        <span className="text-sztatus">
-                          <ChevronRight size={14} />
-                        </span>{" "}
-                        {stat}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+    <div className="min-h-screen text-[#888] font-sans">
+      <main className="max-w-6xl mx-auto px-6 py-24 flex flex-col gap-14">
+        <section className="space-y-1">
+          <h1 className="text-white text-3xl tracking-tight uppercase italic font-bold">
+            BTS SIO
+          </h1>
+          <p className="text-sm font-mono tracking-tighter uppercase text-zinc-500 italic">
+            Services Informatiques aux Organisations
+          </p>
+        </section>
 
-              <div className="col-span-1 sm:col-span-2 lg:col-span-3 bg-[#1a1a1a] rounded-lg p-4 flex flex-col gap-2">
-                <h4 className="text-lg font-semibold">Compétences Communes</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {Object.entries(competences_communes).map(
-                    ([category, skills]) => (
-                      <div
-                        key={category}
-                        className="bg-[#0A0A0A] border border-[#252525] min-h-20 rounded-lg p-4"
-                      >
-                        <h5 className="font-medium text-base text-sztatus mb-1">
-                          {category}
-                        </h5>
-                        <ul className="list-inside flex flex-col">
-                          {skills.map((skill, index) => (
-                            <li
-                              key={index}
-                              className="text-sm inline-flex items-center gap-1"
-                            >
-                              <span className="text-sztatus">
-                                <ChevronRight size={14} />
-                              </span>{" "}
-                              {skill}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ),
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {options.map((item) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {presentation.map((item) => (
             <div
-              key={item.name}
-              className="flex flex-col gap-4 p-4 bg-[#0A0A0A] border border-[#252525] rounded-xl"
+              key={item.titre}
+              className="flex flex-col gap-4 p-6 border border-zinc-900 bg-[#050505] rounded-xl hover:border-zinc-700 transition duration-300"
             >
-              <div className="flex flex-row gap-4">
-                <div className="flex items-center justify-center aspect-square h-15 rounded-sm">
-                  <item.icon size={36} className="text-sztatus" />
-                </div>
-                <div className="flex flex-col items-start gap-2 justify-center">
-                  <h2 className="font-medium text-base text-[#ffff]">
-                    Option {item.name}
-                    {item.myoptions && (
-                      <span className="text-xs ml-0.5 text-sztatus/80">
-                        (Ma spécialité)
-                      </span>
-                    )}
-                  </h2>
-                  <p className="text-sm text-[#888888]">{item.description}</p>
-                </div>
+              <item.icon size={20} className="text-white" />
+              <div className="flex flex-col gap-1">
+                <h2 className="text-white text-sm font-semibold uppercase tracking-tight">
+                  {item.titre}
+                </h2>
+                <p className="text-xs text-zinc-500">{item.description}</p>
               </div>
-
-              {Object.entries(item.infos).map(([name, data]) => (
-                <div
-                  key={name}
-                  className="bg-[#1a1a1a] rounded-lg p-4 flex flex-col gap-2"
-                >
-                  <h5 className="text-base font-medium text-[#ffff]">{name}</h5>
-
-                  {Array.isArray(data) ? (
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      {data.map((item, index) => (
-                        <li
-                          key={index}
-                          className="text-sm inline-flex items-center gap-1"
-                        >
-                          <span className="text-sztatus">
-                            <ChevronRight size={14} />
-                          </span>{" "}
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="text-sm text-[#888888]">{data}</p>
-                  )}
-                </div>
-              ))}
+              <ul className="flex flex-col gap-2">
+                {item.stats.map((stat, index) => (
+                  <li
+                    key={index}
+                    className="text-xs leading-tight flex items-start gap-2"
+                  >
+                    <span className="text-zinc-700">•</span> {stat}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
+
+        <SZSection title="Compétences Communes">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {Object.entries(competences_communes).map(([category, skills]) => (
+              <div key={category} className="flex flex-col gap-4">
+                <h4 className="text-white text-sm font-medium">{category}</h4>
+                <div className="flex flex-wrap gap-2">
+                  {skills.map((skill, index) => (
+                    <span
+                      key={index}
+                      className="px-2 py-1 bg-zinc-900/50 border border-zinc-800 text-xs text-zinc-400 rounded-md"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </SZSection>
+
+        <SZSection title="Spécialisations">
+          {options.map((item) => (
+            <div
+              key={item.name}
+              className={`flex flex-col gap-10 relative p-8 rounded-2xl border ${item.myoptions ? "border-zinc-700 bg-zinc-950/50 shadow-2xl" : "border-zinc-900 bg-black opacity-60"}`}
+            >
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div className="flex items-center gap-4">
+                  <div
+                    className={`p-3 rounded-lg ${item.myoptions ? "bg-white text-black" : "bg-zinc-900 text-zinc-500"}`}
+                  >
+                    <item.icon size={24} />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-bold text-white tracking-tight">
+                      Option {item.name}
+                    </h2>
+                    <p className="text-sm text-zinc-500 font-light">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+                {item.myoptions && (
+                  <span className="px-3 py-1 bg-white text-black text-xs font-black uppercase tracking-tighter rounded-full self-start md:self-center">
+                    Ma Spécialité
+                  </span>
+                )}
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {Object.entries(item.infos).map(([title, content]) => (
+                  <div key={title} className="space-y-3">
+                    <h5 className="text-xs font-bold text-zinc-500 uppercase tracking-widest">
+                      {title}
+                    </h5>
+                    <ul className="flex flex-col gap-1">
+                      {Array.isArray(content) &&
+                        content.map((line, idx) => (
+                          <li
+                            key={idx}
+                            className="text-sm text-zinc-400 font-light flex items-center gap-2"
+                          >
+                            <span className="h-1 w-1 bg-zinc-800 rounded-full"></span>{" "}
+                            {line}
+                          </li>
+                        ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </SZSection>
+
+        <SZFooter />
       </main>
-    </>
+    </div>
   );
 }
