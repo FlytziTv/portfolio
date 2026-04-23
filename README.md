@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+# Portfolio — Alexis De Jesus
 
-First, run the development server:
+**Développeur Fullstack · BTS SIO SLAM**
+
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-4-38bdf8?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
+[![React](https://img.shields.io/badge/React-19-61dafb?style=for-the-badge&logo=react)](https://react.dev)
+
+ **[aalexis.fr](https://aalexis.fr)**
+
+</div>
+
+---
+
+## Présentation
+
+Portfolio personnel développé avec **Next.js 16** et **TypeScript**, présentant mon parcours, mes compétences et mes projets réalisés dans le cadre de mon BTS SIO option SLAM ainsi que mes projets personnels.
+
+---
+
+## Fonctionnalités
+
+- **Page d'accueil** — présentation et mise en avant du profil
+- **Projets E5** — projets réalisés en BTS SIO SLAM
+- **Formulaire de contact** — envoi d'e-mails via [Resend](https://resend.com)
+- **Design responsive** — adapté mobile, tablette et desktop
+- **Performances optimisées** — rendu serveur avec Next.js App Router
+
+---
+
+## Stack technique
+
+| Technologie | Usage |
+|---|---|
+| **Next.js 16** | Framework React (App Router) |
+| **TypeScript 5** | Typage statique |
+| **Tailwind CSS 4** | Styles utilitaires |
+| **Lucide React** | Icônes |
+| **Resend** | Envoi d'e-mails (formulaire de contact) |
+| **clsx / tailwind-merge** | Gestion des classes CSS |
+
+---
+
+## Installation & lancement
+
+### Prérequis
+
+- **Node.js** >= 18
+- **npm** ou **yarn** ou **pnpm**
+
+### Étapes
 
 ```bash
+# 1. Cloner le dépôt
+git clone https://github.com/FlytziTv/portfolio.git
+cd portfolio
+
+# 2. Installer les dépendances
+npm install
+
+# 3. Configurer les variables d'environnement
+cp .env.example .env.local
+# Renseigner votre clé API Resend dans .env.local
+
+# 4. Lancer le serveur de développement
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Structure du projet
 
-## Learn More
+```
+portfolio/
+├── app/              # Pages et routes (Next.js App Router)
+├── components/       # Composants React réutilisables
+├── data/             # Données statiques (projets, compétences…)
+├── lib/              # Utilitaires et helpers
+├── public/           # Assets statiques (images, icônes…)
+└── ...
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts disponibles
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Commande | Description |
+|---|---|
+| `npm run dev` | Lance le serveur de développement |
+| `npm run build` | Compile le projet pour la production |
+| `npm run start` | Démarre le serveur de production |
+| `npm run lint` | Vérifie la qualité du code (ESLint) |
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Déploiement
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Le site est déployé et accessible à l'adresse **[aalexis.fr](https://aalexis.fr)**.
+
+Le déploiement est recommandé via **[Vercel](https://vercel.com)** pour une intégration optimale avec Next.js.
+
+---
+
+## Auteur
+
+**Alexis De Jesus**
+
+- Portfolio : [aalexis.fr](https://aalexis.fr)
+- GitHub : [@FlytziTv](https://github.com/FlytziTv)
