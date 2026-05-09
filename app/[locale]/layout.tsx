@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import "./globals.css";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import "../globals.css";
+
+const locales = ["fr", "en"];
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Alexis De Jesus Portfolio",
     images: [
       {
-        url: "/images/sz-icons/icon.png",
+        url: "https://aalexis.fr/images/sz-icons/icon.svg",
         width: 630,
         height: 630,
         alt: "Logo Alexis De Jesus",
@@ -33,14 +38,26 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  if (!locales.includes(locale)) notFound();
+
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang={locale} className={`${geistSans.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col">
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
+      </body>
     </html>
   );
 }
