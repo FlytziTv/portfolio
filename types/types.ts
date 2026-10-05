@@ -1,81 +1,133 @@
 import type { ComponentType } from "react";
 
-export type UserSocial = {
+export type IconComponent = ComponentType<{ size?: number; color?: string }>;
+
+export type Social = {
   name: string;
+  label: string;
   url: string;
-  icon: ComponentType<{ size?: number; color?: string }>;
+  icon: IconComponent;
 };
 
-export type TitleCategoryProps = {
-  id: string;
+/* ---------- BTS SIO ---------- */
+
+export type CompetenceId = "C1" | "C2" | "C3" | "C4" | "C5" | "C6";
+
+export type Competence = {
+  id: CompetenceId;
   title: string;
-  children: React.ReactNode;
+  short: string;
+  items: string[];
 };
 
-export type TextLinkProps = {
-  text: string;
-  url: string;
-};
-
-export type XpMission = {
+export type Epreuve = {
+  code: string;
   title: string;
-  bulletPoints: string[];
+  coef: number;
+  mode: string;
+  highlight?: boolean;
 };
 
-export type ArticleXpProps = {
+/* ---------- Parcours ---------- */
+
+export type Formation = {
+  school: string;
+  logo?: string;
+  diploma: string;
+  start: string;
+  end: string;
+  location: string;
+  description: string;
+};
+
+export type Certification = {
+  title: string;
+  logo?: string;
+  issuer: string;
+  year: string;
+  file?: string;
+};
+
+export type SkillGroup = {
+  label: string;
+  items: string[];
+};
+
+/* ---------- Stages ---------- */
+
+export type Stage = {
   company: string;
-  startDate: string;
-  endDate: string;
-  titleJob: string;
-  stack: string;
-  missions: XpMission[];
-};
-
-export type ShowMoreButtonProps = {
-  isOpen: boolean;
-  onClick: () => void;
-  labelMore?: string;
-  labelLess?: string;
-};
-
-export type CompXpProps = {
-  data: ArticleXpProps[];
-  id: string;
-  title: string;
-};
-
-export type urlProject = {
-  github?: string;
-  docs?: string;
-  site?: string;
-};
-
-export type ProjectCardProProps = {
-  title: string;
-  techStack: string[];
-  description?: string;
-  url: urlProject;
-};
-
-export interface ProjectProps {
-  title: string;
-  desc: string;
+  logo?: string;
   role: string;
+  start: string;
+  end: string;
+  level: string;
+  presentation?: string;
+  missions: string[];
   stack: string[];
-  list: {
-    githubLink: string;
-    documentationLink: string;
-    websiteLink: string;
-  };
-  image?: string[];
-  status: "En cours" | "Terminé" | "À venir";
-  favorite?: boolean;
-}
+  competences: CompetenceId[];
+  realisations?: string[];
+  weeks?: StageWeek[];
+  upcoming?: boolean;
+  todo?: string;
+};
 
-export interface StackProps {
-  id: number;
+export type StageWeek = {
+  period: string;
+  title: string;
+  items: string[];
+};
+
+export type Experience = {
+  company: string;
+  logo?: string;
+  role: string;
+  period: string;
+  missions: string[];
+};
+
+/* ---------- Réalisations ---------- */
+
+export type RealisationCategory = "e5" | "e6" | "stage" | "perso";
+
+export type RealisationStatus = "Terminé" | "En cours" | "À venir";
+
+export type Realisation = {
+  slug: string;
+  title: string;
+  category: RealisationCategory;
+  context: string;
+  date: string;
+  duration?: string;
+  team?: string;
+  summary: string;
+  objectives: string[];
+  steps?: string[];
+  difficulties?: { problem: string; solution: string }[];
+  results?: string[];
+  environment: string[];
+  competences: CompetenceId[];
+  links: { doc?: string; github?: string; site?: string };
+  images: string[];
+  status: RealisationStatus;
+  featured?: boolean;
+  // Projet client : pas de captures ni de détails sensibles
+  confidential?: boolean;
+};
+
+/* ---------- Veille ---------- */
+
+export type VeilleArticle = {
+  date: string;
+  source: string;
+  title: string;
+  summary: string;
+  url: string;
+  tag: "Matériel" | "Logiciel" | "IA" | "Marché";
+};
+
+export type VeilleSource = {
   name: string;
-  image: string;
-  categorie: string;
-  link: string;
-}
+  type: string;
+  url: string;
+};
