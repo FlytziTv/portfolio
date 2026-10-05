@@ -6,6 +6,7 @@ const logos: [prefix: string, src: string][] = [
   ["html", "/images/skills/html.svg"],
   ["css", "/images/skills/css.svg"],
   ["lua", "/images/skills/lua.svg"],
+  ["angular", "/images/skills/angular.svg"],
   ["react", "/images/skills/react.svg"],
   ["next.js", "/images/skills/nextjs.svg"],
   ["vue", "/images/skills/vue.svg"],
