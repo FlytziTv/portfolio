@@ -43,12 +43,12 @@ export const socials: Social[] = [
 export const navigation = [
   {
     href: "/parcours",
-    label: "Parcours",
+    label: "A propos",
     description: "Présentation, formation, compétences et certifications",
   },
   {
     href: "/bts-sio",
-    label: "BTS SIO",
+    label: "Bts",
     description: "La formation, l’option SLAM et les épreuves",
   },
   {
@@ -58,7 +58,7 @@ export const navigation = [
   },
   {
     href: "/realisations",
-    label: "Réalisations",
+    label: "Projets",
     description: "Projets E5, E6 et personnels documentés",
   },
   {
