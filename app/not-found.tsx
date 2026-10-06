@@ -1,23 +1,24 @@
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-8 sm:px-8 sm:py-12 min-h-screen flex flex-col justify-between">
-      <div className="flex flex-col gap-4 items-center justify-center grow text-center">
-        <h1 className="text-9xl font-bold tracking-tight">404</h1>
-        <p className="text-muted-foreground text-sm">
-          La page que vous recherchez n&apos;existe pas.
-        </p>
+    <div className="relative isolate flex min-h-[70vh] flex-col items-start justify-center gap-5 overflow-hidden px-5 sm:px-8">
+      <div aria-hidden className="bg-grid mask-fade absolute inset-0 -z-10" />
+      <p className="font-dot text-8xl font-black text-brand sm:text-9xl">404</p>
+      <h1 className="text-3xl font-semibold tracking-tighter sm:text-5xl">
+        Page introuvable
+      </h1>
+      <p className="text-muted-foreground">
+        La page que vous recherchez n’existe pas ou a été déplacée.
+      </p>
+      <Button asChild size="lg" className="rounded-full px-4">
         <Link href="/">
-          <Button
-            size="lg"
-            className="bg-foreground text-background hover:bg-foreground/85 px-4 cursor-pointer"
-          >
-            Retour à l&apos;accueil
-          </Button>
+          <ArrowLeft data-icon="inline-start" />
+          Retour à l’accueil
         </Link>
-      </div>
-    </main>
+      </Button>
+    </div>
   );
 }
