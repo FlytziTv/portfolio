@@ -36,9 +36,22 @@ export default async function RealisationPage({ params }: Props) {
   const realisation = getRealisation(slug);
   if (!realisation) notFound();
 
-  const index = realisations.indexOf(realisation);
-  const previous = realisations[index - 1];
-  const next = realisations[index + 1];
+  // Navigation limitée aux réalisations de la même catégorie
+  const siblings = realisations.filter(
+    (r) => r.category === realisation.category,
+  );
+  const index = siblings.indexOf(realisation);
+  const previous = siblings[index - 1];
+  const next = siblings[index + 1];
+
+  // Seules les épreuves E5 et E6 ont une page de liste
+  const back =
+    realisation.category === "e5" || realisation.category === "e6"
+      ? {
+          href: `/${realisation.category}`,
+          label: `Toutes les réalisations ${categoryLabel(realisation.category)}`,
+        }
+      : { href: "/", label: "Accueil" };
 
   const meta = [
     { label: "Contexte", value: realisation.context },
@@ -56,10 +69,10 @@ export default async function RealisationPage({ params }: Props) {
       <header className="relative isolate overflow-hidden px-5 pt-10 pb-12 sm:px-8 sm:pt-14 sm:pb-16">
         <div aria-hidden className="bg-grid mask-fade absolute inset-0 -z-10" />
         <Link
-          href={`/realisations?categorie=${realisation.category}`}
+          href={back.href}
           className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
-          <ArrowLeft size={14} /> Toutes les réalisations
+          <ArrowLeft size={14} /> {back.label}
         </Link>
         <div className="mt-10 grid gap-6 md:grid-cols-2 md:gap-10">
           <div className="flex flex-col gap-4">

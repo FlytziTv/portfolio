@@ -47,19 +47,14 @@ export const navigation = [
     description: "Présentation, formation, compétences et certifications",
   },
   {
-    href: "/bts-sio",
-    label: "Bts",
-    description: "La formation, l’option SLAM et les épreuves",
+    href: "/e5",
+    label: "E5",
+    description: "Travaux pratiques du bloc 1",
   },
   {
-    href: "/stages",
-    label: "Stages",
-    description: "Mes expériences en milieu professionnel",
-  },
-  {
-    href: "/realisations",
-    label: "Projets",
-    description: "Projets E5, E6 et personnels documentés",
+    href: "/e6",
+    label: "E6",
+    description: "Projets de conception et développement d’applications",
   },
   {
     href: "/veille",
