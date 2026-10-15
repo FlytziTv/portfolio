@@ -44,14 +44,17 @@ export default async function RealisationPage({ params }: Props) {
   const previous = siblings[index - 1];
   const next = siblings[index + 1];
 
-  // Seules les épreuves E5 et E6 ont une page de liste
+  // Les projets perso et entreprise sont listés dans un onglet de la page E5
   const back =
     realisation.category === "e5" || realisation.category === "e6"
       ? {
           href: `/${realisation.category}`,
           label: `Toutes les réalisations ${categoryLabel(realisation.category)}`,
         }
-      : { href: "/", label: "Accueil" };
+      : {
+          href: `/e5?categorie=${realisation.category}`,
+          label: `Tous les projets ${realisation.category === "perso" ? "perso" : "entreprise"}`,
+        };
 
   const meta = [
     { label: "Contexte", value: realisation.context },
