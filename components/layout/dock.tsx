@@ -1,10 +1,9 @@
 "use client";
 
 import {
-  Briefcase,
-  FolderGit2,
-  GraduationCap,
+  CodeXml,
   Mail,
+  Server,
   Radar,
   UserRound,
   type LucideIcon,
@@ -18,9 +17,8 @@ import { cn } from "@/lib/utils";
 
 const icons: Record<string, LucideIcon> = {
   "/parcours": UserRound,
-  "/bts-sio": GraduationCap,
-  "/stages": Briefcase,
-  "/realisations": FolderGit2,
+  "/e5": Server,
+  "/e6": CodeXml,
   "/veille": Radar,
   "/contact": Mail,
 };

@@ -15,35 +15,49 @@ import {
 
 export const metadata: Metadata = { title: "Veille technologique" };
 
+const sommaire = [
+  { id: "problematique", label: "Problématique" },
+  { id: "pourquoi", label: "Pourquoi ce sujet" },
+  { id: "methode", label: "Méthode" },
+  { id: "chronologie", label: "Chronologie" },
+  { id: "analyse", label: "Analyse" },
+  { id: "conclusion", label: "Conclusion" },
+];
+
 export default function Veille() {
   return (
     <>
-      {/* Section pour le header de la page */}
       <PageHeader
-        eyebrow="05 — Veille technologique"
+        eyebrow="04 — Veille technologique"
         title={veille.title}
-        description="Une veille menée tout au long de ma formation sur l’évolution du Raspberry Pi et ce qu’elle change pour un développeur d’applications."
-      />
-
-      <Section
-        title="Problématique"
-        aside="Identifier les évolutions du Raspberry Pi et leurs impacts pour un développeur d’applications (C6)."
+        description="Ce que l’évolution du Raspberry Pi change pour un développeur d’applications."
       >
+        {/* Sommaire */}
+        <nav aria-label="Sommaire" className="flex flex-wrap gap-2 pt-2">
+          {sommaire.map((item, index) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-sm shadow-xs transition-colors hover:border-foreground/20"
+            >
+              <span className="font-mono text-[11px] text-brand">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </PageHeader>
+
+      <Section id="problematique" title="Problématique">
         <Problematique question={veille.problematique} />
       </Section>
 
-      <Section
-        title="Pourquoi ce sujet"
-        aside="Justification de la sélection de ce sujet pour la veille technologique."
-      >
-        <div className="flex flex-col gap-4 leading-relaxed text-muted-foreground">
-          {veille.why.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
+      <Section id="pourquoi" title="Pourquoi ce sujet">
+        <p className="leading-relaxed text-muted-foreground">{veille.why}</p>
       </Section>
 
-      <Section title="Méthode" aside="Organiser sa veille informationnelle .">
+      <Section id="methode" title="Méthode">
         <div className="flex flex-col gap-8">
           {/* Outils utilisés pour la veille */}
           <div className="grid gap-3 sm:grid-cols-3">
@@ -84,6 +98,7 @@ export default function Veille() {
       </Section>
 
       <Section
+        id="chronologie"
         title="Chronologie"
         aside={`${veilleArticles.length} articles, du plus récent au plus ancien.`}
       >
@@ -127,7 +142,7 @@ export default function Veille() {
       </Section>
 
       <Section id="analyse" title="Analyse">
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid gap-3 sm:grid-cols-3">
           {veilleSynthese.map((point, index) => (
             <article
               key={point.title}
@@ -145,10 +160,7 @@ export default function Veille() {
         </div>
       </Section>
 
-      <Section
-        title="Conclusion"
-        aside="Synthèse de la veille et perspectives pour un développeur d’applications."
-      >
+      <Section id="conclusion" title="Conclusion">
         <p className="text-md leading-relaxed font-medium tracking-tight">
           {veilleConclusion}
         </p>

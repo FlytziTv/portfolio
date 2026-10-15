@@ -16,7 +16,7 @@ export default function Contact() {
   return (
     <>
       <PageHeader
-        eyebrow="06 — Contact"
+        eyebrow="05 — Contact"
         title="Échangeons"
         description="Une question sur un projet, une proposition de stage ou d’alternance ? Laissez-moi un message, je vous réponds dès que possible."
       />

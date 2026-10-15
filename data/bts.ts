@@ -1,4 +1,4 @@
-import type { Competence, CompetenceId, Epreuve } from "@/types/types";
+import type { Competence, CompetenceId } from "@/types/types";
 
 // Bloc 1 — Support et mise à disposition de services informatiques (épreuve E5)
 export const competences: Competence[] = [
@@ -70,70 +70,3 @@ export const competences: Competence[] = [
 
 export const competenceById = (id: CompetenceId) =>
   competences.find((c) => c.id === id)!;
-
-export const btsInfos = [
-  { label: "Niveau", value: "Bac +2 — niveau 5" },
-  { label: "Durée", value: "2 ans · 120 crédits ECTS" },
-  { label: "Stages", value: "10 semaines minimum" },
-  { label: "Diplôme", value: "Diplôme d’État" },
-];
-
-export const options = [
-  {
-    code: "SLAM",
-    title: "Solutions Logicielles et Applications Métiers",
-    mine: true,
-    description:
-      "Conception, développement et maintenance d’applications : web, mobile, bases de données et programmation orientée objet.",
-    jobs: [
-      "Développeur d’applications",
-      "Développeur web",
-      "Analyste programmeur",
-      "Chef de projet junior",
-    ],
-  },
-  {
-    code: "SISR",
-    title: "Solutions d’Infrastructure, Systèmes et Réseaux",
-    mine: false,
-    description:
-      "Installation, administration et sécurisation des infrastructures : serveurs, réseaux, virtualisation et supervision.",
-    jobs: [
-      "Administrateur systèmes et réseaux",
-      "Technicien support",
-      "Technicien d’infrastructure",
-      "Technicien cybersécurité",
-    ],
-  },
-];
-
-export const blocs = [
-  {
-    code: "Bloc 1",
-    title: "Support et mise à disposition de services informatiques",
-    scope: "Commun SISR / SLAM",
-    epreuve: "E5",
-  },
-  {
-    code: "Bloc 2",
-    title: "Conception et développement d’applications",
-    scope: "Option SLAM",
-    epreuve: "E6",
-  },
-  {
-    code: "Bloc 3",
-    title: "Cybersécurité des services informatiques",
-    scope: "Commun, spécialisé selon l’option",
-    epreuve: "E7",
-  },
-];
-
-export const epreuves: Epreuve[] = [
-  { code: "E1", title: "Culture générale et expression", coef: 2, mode: "Écrit" },
-  { code: "E2", title: "Expression et communication en langue anglaise", coef: 2, mode: "Oral + écrit" },
-  { code: "E3", title: "Mathématiques pour l’informatique", coef: 3, mode: "CCF" },
-  { code: "E4", title: "Culture économique, juridique et managériale", coef: 3, mode: "Écrit" },
-  { code: "E5", title: "Support et mise à disposition de services informatiques", coef: 4, mode: "Oral", highlight: true },
-  { code: "E6", title: "Conception et développement d’applications (SLAM)", coef: 4, mode: "Oral" },
-  { code: "E7", title: "Cybersécurité des services informatiques", coef: 4, mode: "Écrit" },
-];

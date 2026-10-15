@@ -63,7 +63,7 @@ export default function Home() {
             {/* Boutons */}
             <div className="flex flex-wrap items-center gap-2.5">
               <Button asChild size="lg" className="h-10 rounded-full px-4">
-                <Link href="/realisations">
+                <Link href="/e5">
                   Voir mes réalisations
                   <ArrowRight data-icon="inline-end" />
                 </Link>
@@ -172,7 +172,7 @@ export default function Home() {
         aside="Une sélection parmi mes travaux documentés."
         action={
           <Button asChild variant="outline" className="rounded-full px-3.5">
-            <Link href="/realisations">
+            <Link href="/e5">
               Tout voir
               <ArrowRight data-icon="inline-end" />
             </Link>

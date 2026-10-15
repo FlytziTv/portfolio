@@ -20,14 +20,6 @@ export type Competence = {
   items: string[];
 };
 
-export type Epreuve = {
-  code: string;
-  title: string;
-  coef: number;
-  mode: string;
-  highlight?: boolean;
-};
-
 /* ---------- Parcours ---------- */
 
 export type Formation = {
@@ -51,39 +43,6 @@ export type Certification = {
 export type SkillGroup = {
   label: string;
   items: string[];
-};
-
-/* ---------- Stages ---------- */
-
-export type Stage = {
-  company: string;
-  logo?: string;
-  role: string;
-  start: string;
-  end: string;
-  level: string;
-  presentation?: string;
-  missions: string[];
-  stack: string[];
-  competences: CompetenceId[];
-  realisations?: string[];
-  weeks?: StageWeek[];
-  upcoming?: boolean;
-  todo?: string;
-};
-
-export type StageWeek = {
-  period: string;
-  title: string;
-  items: string[];
-};
-
-export type Experience = {
-  company: string;
-  logo?: string;
-  role: string;
-  period: string;
-  missions: string[];
 };
 
 /* ---------- Réalisations ---------- */
