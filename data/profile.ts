@@ -11,11 +11,11 @@ export const profile = {
   school: "Ynov Campus Paris",
   location: "Paris, France",
   email: "alexis.dejesus019@gmail.com",
-  avatar: "https://avatars.githubusercontent.com/u/150966588?v=4",
+  avatar: "/images/sz-icons/blue.png",
   cv: "/files/cv_alexis_dejesus.pdf",
+  synthesis: "/files/tableau-synthese.pdf",
   session: "Session 2027",
-  tagline:
-    "Je conçois et développe des applications web full-stack, de la base de données jusqu’à l’interface.",
+  tagline: "Je conçois et développe des applications web full-stack, de la base de données jusqu’à l’interface.",
 };
 
 export const socials: Social[] = [
