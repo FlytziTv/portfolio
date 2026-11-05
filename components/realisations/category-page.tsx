@@ -20,7 +20,11 @@ export default function CategoryPage({
       <PageHeader
         eyebrow={`${eyebrow} — ${label}`}
         title={description}
-        description={`${visible.length} réalisations documentées : contexte, démarche, difficultés rencontrées et compétences mobilisées.`}
+        description={
+          visible.length === 1
+            ? "Projet documenté : contexte, démarche, difficultés rencontrées et compétences mobilisées."
+            : `${visible.length} réalisations documentées : contexte, démarche, difficultés rencontrées et compétences mobilisées.`
+        }
       />
       <div className="relative border-t border-border px-5 py-10 sm:px-8 sm:py-12">
         <Corners />

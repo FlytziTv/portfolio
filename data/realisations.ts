@@ -507,12 +507,66 @@ export const realisations: Realisation[] = [
   /* E6 — Bloc 2                                                         */
   /* ------------------------------------------------------------------ */
   {
+    slug: "playzone-client-leger",
+    title: "PlayZone — client léger",
+    category: "e6",
+    context: "Projet E6 — ATM pour la Mairie de Paris (contexte fictif)",
+    date: "2026 — 2027",
+    team: "Alexis, Thomas (chef de projet) et Moncef",
+    summary:
+      "Site web où les visiteurs réservent une activité de loisirs (karting, laser game, escape game, bowling) dans un lieu partenaire parisien.",
+    objectives: [
+      "Permettre à un visiteur de réserver une activité dans un lieu de loisirs parisien",
+      "Exposer une API Node.js / Express reliée à la base MySQL commune avec le client lourd",
+      "TODO(Alexis): objectifs précis de ta part du client léger",
+    ],
+    steps: ["TODO(Alexis): étapes de ta réalisation (conception, développement, tests)"],
+    difficulties: [
+      { problem: "TODO(Alexis): difficulté rencontrée", solution: "TODO(Alexis): solution apportée" },
+    ],
+    results: ["TODO(Alexis): résultats obtenus"],
+    environment: ["Node.js", "Express", "MySQL"],
+    competences: ["C3", "C4", "C5"], // TODO(Alexis): vérifier les compétences mobilisées
+    links: {}, // TODO(Alexis): documentation, dépôt GitHub, site en ligne
+    images: [], // TODO(Alexis): captures d’écran du site
+    status: "En cours",
+    featured: false,
+  },
+  {
+    slug: "playzone-client-lourd",
+    title: "PlayZone — client lourd",
+    category: "e6",
+    context: "Projet E6 — ATM pour la Mairie de Paris (contexte fictif)",
+    date: "2026 — 2027",
+    team: "Alexis, Thomas (chef de projet) et Moncef",
+    summary:
+      "Application de bureau pour les gérants de lieux et les agents de la Ville, reliée à la même base de données que le site de réservation.",
+    objectives: [
+      "Offrir aux gérants et aux agents de la Ville un outil de gestion des lieux et des réservations",
+      "Se connecter à la base MySQL commune avec le client léger",
+      "TODO(Alexis): objectifs précis de ta part du client lourd",
+    ],
+    steps: ["TODO(Alexis): étapes de ta réalisation (conception, développement, tests)"],
+    difficulties: [
+      { problem: "TODO(Alexis): difficulté rencontrée", solution: "TODO(Alexis): solution apportée" },
+    ],
+    results: ["TODO(Alexis): résultats obtenus"],
+    environment: ["Java", "MySQL"],
+    competences: ["C3", "C4", "C5"], // TODO(Alexis): vérifier les compétences mobilisées
+    links: {}, // TODO(Alexis): documentation, dépôt GitHub
+    images: [], // TODO(Alexis): captures d’écran de l’application
+    status: "En cours",
+  },
+
+  /* ------------------------------------------------------------------ */
+  /* Personnels                                                          */
+  /* ------------------------------------------------------------------ */
+  {
     slug: "absolute-stream",
     title: "Absolute Stream",
-    category: "e6",
-    context: "Projet E6 — en binôme",
+    category: "perso",
+    context: "Projet personnel",
     date: "2025 — 2027",
-    team: "Binôme avec Thomas Montout",
     summary:
       "Plateforme communautaire de suivi de films, séries et animés inspirée de Letterboxd, alimentée par l’API TMDB.",
     objectives: [
@@ -539,7 +593,7 @@ export const realisations: Realisation[] = [
     environment: ["Next.js 16", "React 19", "TypeScript", "Prisma", "PostgreSQL (NeonDB)", "Better Auth", "Tailwind CSS", "API TMDB"],
     competences: ["C3", "C4", "C5"],
     links: {
-      doc: "/projets/e6/docs/absolute-stream.pdf",
+      doc: "/projets/perso/docs/absolute-stream.pdf",
       github: "https://github.com/FlytziTv/Absolute_Stream",
       site: "https://absolute-stream.vercel.app/",
     },
@@ -547,46 +601,7 @@ export const realisations: Realisation[] = [
     status: "En cours",
     featured: true,
   },
-  {
-    slug: "stadium-company",
-    title: "StadiumCompany",
-    category: "e6",
-    context: "Projet intégrateur SIO SISR / SLAM / CIEL",
-    date: "2026 — 2027",
-    team: "Projet inter-filières",
-    summary:
-      "Site web d’une entreprise gérant un stade multi-événements : billetterie, réservations, événements et espace collaborateur authentifié via l’Active Directory.",
-    objectives: [
-      "Concevoir un site multi-pages avec une architecture claire",
-      "Développer le back-end en PHP (PDO, sessions, sécurité)",
-      "Concevoir la base de données MariaDB",
-      "Intégrer l’authentification LDAP sur l’Active Directory des SISR",
-    ],
-    environment: ["PHP 8", "MariaDB", "Apache2", "LDAP", "JavaScript", "Tailwind CSS"],
-    competences: ["C3", "C4", "C5"],
-    links: { doc: "/projets/e6/docs/StadiumCompany.pdf" },
-    images: ["/projets/e6/images/StadiumCompany.png"],
-    status: "À venir",
-  },
-  {
-    slug: "galerie-auto",
-    title: "Galerie Auto",
-    category: "e6",
-    context: "Formation — BTS SIO",
-    date: "2026 — 2027",
-    summary:
-      "Application web de galerie automobile affichant les véhicules et leurs caractéristiques : marque, modèle, année, carburant, prix.",
-    objectives: ["Afficher un catalogue de véhicules", "Proposer des fiches détaillées claires et responsives"],
-    environment: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-    competences: ["C3"],
-    links: { github: "https://github.com/FlytziTv/Projet-bts-sio/tree/main/galerie_auto" },
-    images: ["/projets/e6/images/galerie_auto-1.png", "/projets/e6/images/galerie_auto-2.png"],
-    status: "À venir",
-  },
 
-  /* ------------------------------------------------------------------ */
-  /* Personnels                                                          */
-  /* ------------------------------------------------------------------ */
   {
     slug: "portfolio",
     title: "Portfolio BTS SIO",
