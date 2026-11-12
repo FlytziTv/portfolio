@@ -39,7 +39,7 @@ export function E5View({
   active: RealisationCategory;
   onSelect?: (id: RealisationCategory) => void;
 }) {
-  const visible = realisations.filter((r) => r.category === active);
+  const visible = realisations.filter((r) => r.category === active).reverse();
 
   return (
     <div className="flex flex-col gap-8">

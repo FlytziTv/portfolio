@@ -13,7 +13,7 @@ export default function CategoryPage({
   eyebrow: string;
 }) {
   const { label, description } = categories.find((c) => c.id === category)!;
-  const visible = realisations.filter((r) => r.category === category);
+  const visible = realisations.filter((r) => r.category === category).reverse();
 
   return (
     <>

@@ -13,7 +13,7 @@ import { realisations } from "@/data/realisations";
 import { veilleArticles } from "@/data/veille";
 
 export default function Home() {
-  const featured = realisations.filter((r) => r.featured);
+  const featured = realisations.filter((r) => r.featured).reverse();
 
   const stats = [
     { value: realisations.length, label: "Réalisations" },
